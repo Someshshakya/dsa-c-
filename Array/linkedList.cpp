@@ -71,8 +71,19 @@ void append(Node** head_ref,int new_data){
     last->next = new_node;
     return;
 }
+/*@###################### Search of nodes in Linked List ###################### */
+// 1. check value x is present in the linkedlist or not;
 
-
+bool search(Node* head, int x){
+    Node *current = head; // Initialize current
+    while(current != NULL){
+        if(current->data == x){
+            return true;
+        }
+        current = current->next;
+    }
+    return false;
+}
 // Driver's code
 int main(){
     Node *head = NULL;
@@ -103,6 +114,7 @@ int main(){
     printList(head);
     insertAfter(head->next, 43);
     printList(head);
+    search(head, 45) ? cout << "Yes " : cout << "No";
 
     return 0;
 }
